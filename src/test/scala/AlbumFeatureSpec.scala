@@ -35,11 +35,13 @@ class AlbumFeatureSpec extends FeatureSpec with ShouldMatchers with GivenWhenThe
       )
 
       When("the band is instatiated with title, year, none tracks and someBand")
-      val album = new Album("The album name", 1978, None, someBand)
+      val album = new Album("The album name", 1973, None, someBand)
 
       Then("the fields should be set")
       album.title should be ("The album name")
-
+      album.year should be (1973)
+      album.tracks should be (None)
+      album.acts(0) should be (someBand)
     }
 
     scenario("Album's default constructor is given null for the tracks parameter"){
